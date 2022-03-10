@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>SaaSOptics NetSuite Log Parser</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+       
+        <div>
+            <h2>SaaSOptics NetSuite Log Parser</h2>
+            <img src="https://www.fulcrumep.com/wp-content/uploads/2018/01/SaaSOptics-horizontal.svg">
+        <h4>Click on the "Choose File" button to upload a NetSuite Log file:</h4>
+<form >
+  <input type="file" id="input" name="filename" accept=".txt" onclick="addPicture()" onchange="loadFile(this.files[0])" >
+</form>
+<div id="container1"></div>
+</div>
+
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script src="script.js" async defer></script>
+    </body>
+</html>

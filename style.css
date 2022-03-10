@@ -1,0 +1,12 @@
+div{
+    padding-top: 70px 0;
+    text-align: center;
+}
+img{
+    width: 50%;
+    padding-bottom: 50px;
+}
+#loading{
+    width: 200px;
+  height: auto
+}
