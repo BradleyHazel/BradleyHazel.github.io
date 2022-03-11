@@ -18,8 +18,9 @@
             <h2>SaaSOptics NetSuite Log Parser</h2>
             <img src="https://www.fulcrumep.com/wp-content/uploads/2018/01/SaaSOptics-horizontal.svg">
         <h4>Click on the "Choose File" button to upload a NetSuite Log file:</h4>
+        <h5>(If processing a large file, the page will give false warning of unresponsive. Processes text at ~ 6MB per min)</h5>
 <form >
-  <input type="file" id="input" name="filename" accept=".txt" onclick="addPicture()" onchange="loadFile(this.files[0])" >
+  <input type="file" id="input" name="filename" onclick="addPicture()" onchange="loadFile(this.files[0])" >
 </form>
 <div id="container1"></div>
 </div>

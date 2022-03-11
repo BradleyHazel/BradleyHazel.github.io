@@ -746,13 +746,145 @@ const container1 = document.getElementById('container1');
         stringData = stringData.replaceAll(`<ns${i}:hostname`,``);
         stringData = stringData.replaceAll(`xmlns:ns${i}="`,``);
         stringData = stringData.replaceAll(`</ns${i}:hostname>`,``);
+        stringData = stringData.replaceAll(`<ns${i}:checkNum`,`Check Num: `);
+        stringData = stringData.replaceAll(`</ns${i}:checkNum>`,``);
+        stringData = stringData.replaceAll(`<ns${i}:undepFunds`,`Undeposited Funds: `);
+        stringData = stringData.replaceAll(`</ns${i}:Undeposited Funds:`,``);
+        stringData = stringData.replaceAll(`<ns${i}:account`,`Account: `);
+        stringData = stringData.replaceAll(`<ns${i}:parent`,`Parent: `);
+        stringData = stringData.replaceAll(`<ns${i}:phone`,`Phone: `);
+        stringData = stringData.replaceAll(`</ns${i}:phone>`,``);
+        stringData = stringData.replaceAll(`<ns${i}:category`,`Category: `);
+        stringData = stringData.replaceAll(`<ns${i}:firstName`,`First Name: `);
+        stringData = stringData.replaceAll(`</ns${i}:firstName>`,``);
+        stringData = stringData.replaceAll(`<ns${i}:lastName`,`Last Name: `);
+        stringData = stringData.replaceAll(`</ns${i}:lastName>`,``);
+        stringData = stringData.replaceAll(`</ns${i}:entityId>`,``);
+        stringData = stringData.replaceAll(`<ns${i}:customForm`,``);
+        stringData = stringData.replaceAll(`<ns${i}:applyingTransactionJoin/>`,``);
+        stringData = stringData.replaceAll(`<ns${i}:applyingTransactionJoin>`,`Applying Transaction Join: `);
+        stringData = stringData.replaceAll(`</ns${i}:applyingTransactionJoin>`,``);
     }
+    stringData = stringData.replaceAll(`<platformCommon:appliedToTransaction operator="anyOf`,``);
+    stringData = stringData.replaceAll(`</platformCommon:appliedToTransaction>`,``);
+    stringData = stringData.replaceAll(`<platformCommon:paidTransaction operator="anyOf`,``);
+    stringData = stringData.replaceAll(`</platformCommon:paidTransaction>`,``);
+    stringData = stringData.replaceAll(`<tranSales:applyingTransactionJoin`,`Trans Sales: Applying Transaction Join: `);
+    stringData = stringData.replaceAll(`</tranSales:applyingTransactionJoin>`,``);
+    stringData = stringData.replaceAll(`</setupCustom:defaultSelection>`,``);
+    
+    stringData = stringData.replaceAll(`</listAcct:createdDate>`,``);
+    
+    stringData = stringData.replaceAll(`</listAcct:expenseAccount>`,``)
+    stringData = stringData.replaceAll(`</listAcct:intercoExpenseAccount>`,``)
+    stringData = stringData.replaceAll(`</listAcct:incomeAccount>`,``)
+    stringData = stringData.replaceAll(`</listAcct:intercoIncomeAccount>`,``)
+    stringData = stringData.replaceAll(`</listAcct:taxSchedule>`,``)    
+   
+    stringData = stringData.replaceAll(`</listAcct:deferRevRec>`,``)     
+    stringData = stringData.replaceAll(`</listAcct:revenueRecognitionRule>`,``) 
+    stringData = stringData.replaceAll(`</listAcct:revRecForecastRule>`,``)                 
+    stringData = stringData.replaceAll(`</listAcct:createRevenuePlansOn>`,``)       
+
+    stringData = stringData.replaceAll(`</listAcct:directRevenuePosting>`,``)            
+
+    stringData = stringData.replaceAll(`</listAcct:enforceMinQtyInternally>`,``)
+
+    stringData = stringData.replaceAll(`</listAcct:isFulfillable>`,``)
+
+    stringData = stringData.replaceAll(`</listAcct:useMarginalRates>`,``)            
+    stringData = stringData.replaceAll(`</listAcct:overallQuantityPricingType>`,``)
+    stringData = stringData.replaceAll(`</listAcct:vsoeSopGroup>`,``)            
+    stringData = stringData.replaceAll(`</listAcct:vsoeDelivered>`,``)            
+    stringData = stringData.replaceAll(`</listAcct:sitemapPriority>`,``)            
+    stringData = stringData.replaceAll(`</listAcct:generateAccruals>`,``)    
+    stringData = stringData.replaceAll(`</listAcct:itemId>`,``)
+    stringData = stringData.replaceAll(`</listAcct:`,` `);
+
+
+    stringData = stringData.replaceAll(`</listAcct:class>`,``);
+    stringData = stringData.replaceAll(`</listAcct:location>`,``);
+    stringData = stringData.replaceAll(`<platformCommon:entityId/>`,`Entity Id: `);
+    stringData = stringData.replaceAll(`<platformCommon:addressee>`,`Addressee": `);
+    stringData = stringData.replaceAll(`<setupCustom:displayWidth>`,`Custom Display Width: `);
+    stringData = stringData.replaceAll(`<setupCustom:colTime>`,`Custom Col Time: `);
+    stringData = stringData.replaceAll(`<platformCommon:closed/>`,`Closed: `);
+    stringData = stringData.replaceAll(`<platformCommon:paymentApproved>`,`Payment Approved: `);
+    stringData = stringData.replaceAll(`xsi:type="platformCore:StringCustomFieldRef`,``);
+    stringData = stringData.replaceAll(`xsi:type="setupCustom:EntityCustomField`,``);
+    stringData = stringData.replaceAll(`xsi:type="platformCore:SearchColumnStringCustomField`,``);
+    stringData = stringData.replaceAll(`<platformCommon:entityId>`,`Entity Id: `);
+    stringData = stringData.replaceAll(`</platformCommon:entityId>`,``);
+    stringData = stringData.replaceAll(`<platformCore:deletedRecordList>`,`Deleted Record List: `);
+    stringData = stringData.replaceAll(`<platformCore:deletedDate>`,`Deleted Date: `);
+    stringData = stringData.replaceAll(`</platformCore:deletedDate>`,``);
+    stringData = stringData.replaceAll(`</platformCore:deletedRecordList>`,``);
+    stringData = stringData.replaceAll(`<platformCore:record`,`Record: `);
+    stringData = stringData.replaceAll(`xsi:type="platformCore:RecordRef`,``);
+    stringData = stringData.replaceAll(`<platformCore:deletedRecord>`,`Deleted Record:`);
+    stringData = stringData.replaceAll(`</platformCore:deletedRecord>`,``);
+    
+    stringData = stringData.replaceAll(`</platformCommon:paymentApproved>`,``);
+    stringData = stringData.replaceAll(`</setupCustom:colTime>`,``);
+    stringData = stringData.replaceAll(`</setupCustom:displayWidth>`,``);
+    stringData = stringData.replaceAll(`</platformCommon:addressee>`,``);
+    stringData = stringData.replaceAll(`</setupCustom:availableToSso>`,``);
+    stringData = stringData.replaceAll(`<setupCustom:availableToSso>`,`Available To SSO`);
+    stringData = stringData.replaceAll(`urn:relationships_2017_2.lists.webservices.netsuite.com`,``);
+    stringData = stringData.replaceAll(`</listAcct:deferralAcct>`,``);
     stringData = stringData.replaceAll(`</setupCustom:colStore>`,``);
     stringData = stringData.replaceAll(` >false `,`false`);
     stringData = stringData.replaceAll(`<platformCommon:comments>`,`Comments: `);
     stringData = stringData.replaceAll(`</platformCommon:comments>`,``);
     stringData = stringData.replaceAll(`>false</setupCustom:colStore>`,`false`);
     stringData = stringData.replaceAll(`>true</setupCustom:colStore>`,`true`);
+
+    stringData = stringData.replaceAll(`</listAcct:Inventory:`,``);
+    stringData = stringData.replaceAll(`<platformCommon:billZipCode/>`,`Bill Zip Code: `);      
+    stringData = stringData.replaceAll(`<platformCommon:city/>`,`City: `);  
+    stringData = stringData.replaceAll(`<platformCommon:countryCode/>`,`Country Code: `);       
+    stringData = stringData.replaceAll(`<platformCommon:email/>`,`Email: `);
+    stringData = stringData.replaceAll(`<platformCommon:fax/>`,`Fax: `);
+    stringData = stringData.replaceAll(`<platformCommon:firstName/>`,`First Name: `);                         
+    stringData = stringData.replaceAll(`<platformCommon:lastName/>`,`Last Name: `); 
+    stringData = stringData.replaceAll(`<platformCommon:phone/>`,`Phone: `);
+    stringData = stringData.replaceAll(`<platformCommon:salutation/>`,`Salutation: `); 
+    stringData = stringData.replaceAll(`<platformCommon:state/>`,`State: `);
+    stringData = stringData.replaceAll(`<platformCommon:billZipCode>`,`Bill Zip Code: `);
+    stringData = stringData.replaceAll(`<platformCommon:email>`,`Email: `);
+    stringData = stringData.replaceAll(`<platformCommon:countryCode>`,`Country Code: `);
+    stringData = stringData.replaceAll(`</platformCommon:countryCode>`,``);
+    stringData = stringData.replaceAll(`</platformCommon:email>`,``);
+    stringData = stringData.replaceAll(`</platformCommon:billZipCode>`,``);
+    stringData = stringData.replaceAll(`<platformCommon:phone>`,`Phone: `);
+    stringData = stringData.replaceAll(`</platformCommon:phone>`,``);
+
+    stringData = stringData.replaceAll(`xsi:type="setupCustom:TransactionBodyCustomField`,``);
+    stringData = stringData.replaceAll(`<setupCustom:bodyTransferOrder>`,`Body Transfer Order`);
+    stringData = stringData.replaceAll(`</setupCustom:bodyTransferOrder>`,``);
+    stringData = stringData.replaceAll(`<setupCustom:bodyInventoryAdjustment>`,`Body Inventory Adjustment: `);
+    stringData = stringData.replaceAll(`xsi:type="platformCore:SearchColumnDoubleCustomField`,``);
+    stringData = stringData.replaceAll(`</setupCustom:bodyInventoryAdjustment>`,``);
+    stringData = stringData.replaceAll(`createdDate>`,`Created Date: `);
+    stringData = stringData.replaceAll(`enforceMinQtyInternally>`,`Enforce Min Qty Internally: `);
+    stringData = stringData.replaceAll(`directRevenuePosting>`,`Direct Revenue Posting: `);
+    stringData = stringData.replaceAll(`lastModifiedDate>`,`Last Modified Date: `);     
+    stringData = stringData.replaceAll(`deferRevRec>`,`Defer Rev Rec: `);          
+    stringData = stringData.replaceAll(`isFulfillable>`,`Is Fulfillable: `);            
+    stringData = stringData.replaceAll(`generateAccruals>`,`Generate Accruals: `);
+    stringData = stringData.replaceAll(`itemId>`,`Item Id: `);
+    stringData = stringData.replaceAll(`useMarginalRates>`,`Use Marginal Rates: `)
+    stringData = stringData.replaceAll(`overallQuantityPricingType>`,`Overall Quantity Pricing Type: `);
+    stringData = stringData.replaceAll(`soeSopGroup>`,`soeSopGroup: `);
+    stringData = stringData.replaceAll(`vsoeDelivered>`,`vsoeDelivered: `);
+    stringData = stringData.replaceAll(`sitemapPriority>`,`Sitemap Priority: `);
+    stringData = stringData.replaceAll(`inventory>`,`Inventory: `);
+    stringData = stringData.replaceAll(`<setupCustom:bodyStore>`,`Body Store: `);
+    stringData = stringData.replaceAll(`</setupCustom:bodyStore>`,``);
+    stringData = stringData.replaceAll(`<setupCustom:translationsList>`,`Translations List: `);              
+    stringData = stringData.replaceAll(`<setupCustom:translations/>`,``);          
+    stringData = stringData.replaceAll(`</setupCustom:translationsList>`,``);         
+  
     // clean up the rest of the document from XML 
     stringData = stringData.replaceAll(` >`,``);
     stringData = stringData.replaceAll(` /> `,` `);
