@@ -4,10 +4,16 @@
 const fileSelector = document.getElementById('input');
 
 function addPicture(){
+
+    // minor bug fix so the picture doesn’t duplicate on multiple usage
+    if(container1.childElementCount>0){
+        container1.innerHTML=``
+    }
+    else{
 let newDiv = document.createElement("div");
         newDiv.innerHTML = `<img src="https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" id="loading">`
         container1.appendChild(newDiv);
-}
+}}
 const container1 = document.getElementById('container1');
 //fs.readFile(file_location, (err, data) => {
     async function loadFile(file) {
