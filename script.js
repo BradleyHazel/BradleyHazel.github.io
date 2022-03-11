@@ -7,7 +7,6 @@ function addPicture(){
 
     // minor bug fix so the picture doesn’t duplicate on multiple usage
     if(container1.childElementCount>0){
-        container1.innerHTML=``
     }
     else{
 let newDiv = document.createElement("div");
