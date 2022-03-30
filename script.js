@@ -1,13 +1,8 @@
-
 // getting the file system  
-
 const fileSelector = document.getElementById('input');
-
 function addPicture(){
-
     // minor bug fix so the picture doesn’t duplicate on multiple usage
-    if(container1.childElementCount>0){
-    }
+    if(container1.childElementCount>0){}
     else{
 let newDiv = document.createElement("div");
         newDiv.innerHTML = `<img src="https://media2.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" id="loading">`
@@ -15,13 +10,18 @@ let newDiv = document.createElement("div");
 }}
 const container1 = document.getElementById('container1');
 //fs.readFile(file_location, (err, data) => {
-    async function loadFile(file) {
+async function loadFile(file) {
         let text = await file.text();
-        
     // turning the data to a string
     let stringData = text.toString();
     // grabbing the date due to the normal format, could replace with Regex later
     let date = stringData.slice(0,10);
+    // the get last sync option
+    const cb = document.querySelector('#lastSync');
+    if(cb.checked == true){
+    let lastSyncStart = stringData.lastIndexOf(`UUID for this sync:`)
+    stringData = stringData.slice(lastSyncStart,stringData.length);
+    }
     // replacing all of the redundant messaging with more relevant text or nothing at all 
     stringData = stringData.replaceAll(`SOAP Request: b'<soap-env:Body xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:platformCommon="urn:common_2017_2.platform.webservices.netsuite.com" xmlns:platformCore="urn:core_2017_2.platform.webservices.netsuite.com" xmlns:platformMsgs="urn:messages_2017_2.platform.webservices.netsuite.com">`,"")
     stringData = stringData.replaceAll(`saasoptics.netsuite.sync`,'');
@@ -772,26 +772,19 @@ const container1 = document.getElementById('container1');
     stringData = stringData.replaceAll(`<tranSales:applyingTransactionJoin`,`Trans Sales: Applying Transaction Join: `);
     stringData = stringData.replaceAll(`</tranSales:applyingTransactionJoin>`,``);
     stringData = stringData.replaceAll(`</setupCustom:defaultSelection>`,``);
-    
     stringData = stringData.replaceAll(`</listAcct:createdDate>`,``);
-    
     stringData = stringData.replaceAll(`</listAcct:expenseAccount>`,``)
     stringData = stringData.replaceAll(`</listAcct:intercoExpenseAccount>`,``)
     stringData = stringData.replaceAll(`</listAcct:incomeAccount>`,``)
     stringData = stringData.replaceAll(`</listAcct:intercoIncomeAccount>`,``)
     stringData = stringData.replaceAll(`</listAcct:taxSchedule>`,``)    
-   
     stringData = stringData.replaceAll(`</listAcct:deferRevRec>`,``)     
     stringData = stringData.replaceAll(`</listAcct:revenueRecognitionRule>`,``) 
     stringData = stringData.replaceAll(`</listAcct:revRecForecastRule>`,``)                 
     stringData = stringData.replaceAll(`</listAcct:createRevenuePlansOn>`,``)       
-
     stringData = stringData.replaceAll(`</listAcct:directRevenuePosting>`,``)            
-
     stringData = stringData.replaceAll(`</listAcct:enforceMinQtyInternally>`,``)
-
     stringData = stringData.replaceAll(`</listAcct:isFulfillable>`,``)
-
     stringData = stringData.replaceAll(`</listAcct:useMarginalRates>`,``)            
     stringData = stringData.replaceAll(`</listAcct:overallQuantityPricingType>`,``)
     stringData = stringData.replaceAll(`</listAcct:vsoeSopGroup>`,``)            
@@ -800,8 +793,6 @@ const container1 = document.getElementById('container1');
     stringData = stringData.replaceAll(`</listAcct:generateAccruals>`,``)    
     stringData = stringData.replaceAll(`</listAcct:itemId>`,``)
     stringData = stringData.replaceAll(`</listAcct:`,` `);
-
-
     stringData = stringData.replaceAll(`</listAcct:class>`,``);
     stringData = stringData.replaceAll(`</listAcct:location>`,``);
     stringData = stringData.replaceAll(`<platformCommon:entityId/>`,`Entity Id: `);
@@ -823,7 +814,8 @@ const container1 = document.getElementById('container1');
     stringData = stringData.replaceAll(`xsi:type="platformCore:RecordRef`,``);
     stringData = stringData.replaceAll(`<platformCore:deletedRecord>`,`Deleted Record:`);
     stringData = stringData.replaceAll(`</platformCore:deletedRecord>`,``);
-    
+    stringData = stringData.replaceAll(`<platformCommon:endDate`,``);
+    stringData = stringData.replaceAll(`operator="notEmpty`,`Not Empty`);
     stringData = stringData.replaceAll(`</platformCommon:paymentApproved>`,``);
     stringData = stringData.replaceAll(`</setupCustom:colTime>`,``);
     stringData = stringData.replaceAll(`</setupCustom:displayWidth>`,``);
@@ -838,7 +830,13 @@ const container1 = document.getElementById('container1');
     stringData = stringData.replaceAll(`</platformCommon:comments>`,``);
     stringData = stringData.replaceAll(`>false</setupCustom:colStore>`,`false`);
     stringData = stringData.replaceAll(`>true</setupCustom:colStore>`,`true`);
-
+    stringData = stringData.replaceAll(`<platformCommon:netAmount`,`Net Amount`);
+    stringData = stringData.replaceAll(`</platformCommon:netAmount>`,``);
+    stringData = stringData.replaceAll(`<platformCommon:startDate`,`Start Date`);
+    stringData = stringData.replaceAll(`<platformCommon:status`,`status`);
+    stringData = stringData.replaceAll(`<platformCommon:closeDate/>`,``);
+    stringData = stringData.replaceAll(`Net Amount/>`,``);
+    stringData = stringData.replaceAll(`Start Date/>`,``); 
     stringData = stringData.replaceAll(`</listAcct:Inventory:`,``);
     stringData = stringData.replaceAll(`<platformCommon:billZipCode/>`,`Bill Zip Code: `);      
     stringData = stringData.replaceAll(`<platformCommon:city/>`,`City: `);  
@@ -858,7 +856,6 @@ const container1 = document.getElementById('container1');
     stringData = stringData.replaceAll(`</platformCommon:billZipCode>`,``);
     stringData = stringData.replaceAll(`<platformCommon:phone>`,`Phone: `);
     stringData = stringData.replaceAll(`</platformCommon:phone>`,``);
-
     stringData = stringData.replaceAll(`xsi:type="setupCustom:TransactionBodyCustomField`,``);
     stringData = stringData.replaceAll(`<setupCustom:bodyTransferOrder>`,`Body Transfer Order`);
     stringData = stringData.replaceAll(`</setupCustom:bodyTransferOrder>`,``);
@@ -884,7 +881,6 @@ const container1 = document.getElementById('container1');
     stringData = stringData.replaceAll(`<setupCustom:translationsList>`,`Translations List: `);              
     stringData = stringData.replaceAll(`<setupCustom:translations/>`,``);          
     stringData = stringData.replaceAll(`</setupCustom:translationsList>`,``);         
-  
     // clean up the rest of the document from XML 
     stringData = stringData.replaceAll(` >`,``);
     stringData = stringData.replaceAll(` /> `,` `);
@@ -895,12 +891,30 @@ const container1 = document.getElementById('container1');
     // Finding the instances of records and total records and creating a new line for formatting
     let totalRecordsIndex = stringData.indexOf(`Total Records:`)
     let recordIndex = stringData.indexOf(` Record `)
+    let record2Index = stringData.indexOf(` Record: `)
+    let amountPaidIndex = stringData.indexOf(` Amount Paid: `)
+    let companyNameIndex = stringData.indexOf(` Company Name: `);
+    let endsIndex = stringData.indexOf(`ends. ===`);
+    while(endsIndex>0){
+        let insertIndex = endsIndex+10
+        let line = "\n"
+        stringData = stringData.slice(0,insertIndex)+line+line+stringData.slice(insertIndex,stringData.length)
+        stringData[insertIndex]=`                                                                                                                                        `
+        endsIndex = stringData.indexOf(`ends. ===`,endsIndex+30)
+    }
     while(recordIndex>0){
         let insertIndex = recordIndex-1
         let line = "\n"
         stringData = stringData.slice(0,insertIndex)+line+line+stringData.slice(insertIndex,stringData.length)
         stringData[insertIndex]=`                                                                                                                                        `
         recordIndex = stringData.indexOf(` Record `,recordIndex+30)
+    }
+    while(record2Index>0){
+        let insertIndex = record2Index-1
+        let line = "\n"
+        stringData = stringData.slice(0,insertIndex)+line+line+stringData.slice(insertIndex,stringData.length)
+        stringData[insertIndex]=`                                                                                                                                        `
+        record2Index = stringData.indexOf(` Record: `,record2Index+30)
     }
     while(totalRecordsIndex>0){
         let insertIndex = totalRecordsIndex-1
@@ -909,22 +923,31 @@ const container1 = document.getElementById('container1');
         stringData[insertIndex]=`                                                                                                                                        `
     totalRecordsIndex = stringData.indexOf(`Total Records:`,totalRecordsIndex+30)
     }
+    while(amountPaidIndex>0){
+        let insertIndex = amountPaidIndex-1
+        let line = "\n"
+        stringData = stringData.slice(0,insertIndex)+line+line+stringData.slice(insertIndex,stringData.length)
+        stringData[insertIndex]=`                                                                                                                                        `
+        amountPaidIndex = stringData.indexOf(` Amount Paid: `,amountPaidIndex+30)
+    }
+    while(companyNameIndex>0){
+        let insertIndex = companyNameIndex-1
+        let line = "\n"
+        stringData = stringData.slice(0,insertIndex)+line+line+stringData.slice(insertIndex,stringData.length)
+        stringData[insertIndex]=`                                                                                                                                        `
+        companyNameIndex = stringData.indexOf(` Company Name: `,companyNameIndex+30)
+    }
     // Creating a new file that is formatted
-    // 
     function download(filename, text) {
         var element = document.createElement('a');
         element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
         element.setAttribute('download', filename);
-      
         element.style.display = 'none';
         document.body.appendChild(element);
-      
         element.click();
-      
         document.body.removeChild(element);
       }
       document.getElementById(`loading`).src = ``;
       // Start file download.
       download("ParsedNetSuiteLog.txt",stringData);
-      
 }   

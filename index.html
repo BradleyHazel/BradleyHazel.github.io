@@ -18,17 +18,18 @@
             <h2>SaaSOptics NetSuite Log Parser</h2>
             <img src="https://www.fulcrumep.com/wp-content/uploads/2018/01/SaaSOptics-horizontal.svg">
         <h4>Click on the "Choose File" button to upload a NetSuite Log file:</h4>
-        <h5>(If processing a large file, the page will give false warning of unresponsive. Processes text at ~ 6MB per min)</h5>
+        <h5>(If processing a large file <u>use last sync only option</u>, otherwise, the page will give false warning of unresponsive, leave this page running in the background. Processes files at ~ 5MB per min)</h5>
 <form >
   <input type="file" id="input" name="filename" onclick="addPicture()" onchange="loadFile(this.files[0])" >
 </form>
+<br>
+<input type="checkbox" id="lastSync" name="lastSync" value="Bike">
+<label for="lastSync"> Get last sync only</label><br>
 <div id="container1"></div>
 </div>
-
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
         <script src="script.js" async defer></script>
     </body>
 </html>
