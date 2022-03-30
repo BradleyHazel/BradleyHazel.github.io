@@ -16,6 +16,7 @@ async function loadFile(file) {
     let stringData = text.toString();
     // grabbing the date due to the normal format, could replace with Regex later
     let date = stringData.slice(0,10);
+
     // the get last sync option
     const cb = document.querySelector('#lastSync');
     if(cb.checked == true){
@@ -880,7 +881,15 @@ async function loadFile(file) {
     stringData = stringData.replaceAll(`</setupCustom:bodyStore>`,``);
     stringData = stringData.replaceAll(`<setupCustom:translationsList>`,`Translations List: `);              
     stringData = stringData.replaceAll(`<setupCustom:translations/>`,``);          
-    stringData = stringData.replaceAll(`</setupCustom:translationsList>`,``);         
+    stringData = stringData.replaceAll(`</setupCustom:translationsList>`,``);   
+    stringData = stringData.replaceAll(`<platformCore:statusDetail type="WARN`,`STATUS: WARN`);  
+    stringData = stringData.replaceAll(`<platformCommon:resaleNumber>`,`Resale Number`);
+    stringData = stringData.replaceAll(`</platformCommon:resaleNumber>`,``);
+    stringData = stringData.replaceAll(`<setupCustom:maxLength>`,`Custom Max Length: `);
+    stringData = stringData.replaceAll(`</setupCustom:maxLength>`,``);
+    stringData = stringData.replaceAll(`</platformCommon:endDate>`,``);
+    stringData = stringData.replaceAll(`</platformCommon:startDate>`,``);
+    stringData = stringData.replaceAll(`operator="anyOf`,`Any of`);
     // clean up the rest of the document from XML 
     stringData = stringData.replaceAll(` >`,``);
     stringData = stringData.replaceAll(` /> `,` `);
@@ -895,6 +904,22 @@ async function loadFile(file) {
     let amountPaidIndex = stringData.indexOf(` Amount Paid: `)
     let companyNameIndex = stringData.indexOf(` Company Name: `);
     let endsIndex = stringData.indexOf(`ends. ===`);
+    let iliIndex = stringData.indexOf(`Amount:                 Search Value:`);
+    let errResponseIndex = stringData.indexOf(`Write Response:  `)
+    while(errResponseIndex>0){
+        let insertIndex = errResponseIndex-1
+        let line = "\n"
+        stringData = stringData.slice(0,insertIndex)+line+line+stringData.slice(insertIndex,stringData.length)
+        stringData[insertIndex]=`                                                                                                                                        `
+        errResponseIndex = stringData.indexOf(`Write Response:  `,errResponseIndex+30)
+    }
+    while(iliIndex>0){
+        let insertIndex = iliIndex-1
+        let line = "\n"
+        stringData = stringData.slice(0,insertIndex)+line+line+stringData.slice(insertIndex,stringData.length)
+        stringData[insertIndex]=`                                                                                                                                        `
+        iliIndex = stringData.indexOf(`Amount:                 Search Value:`,iliIndex+30)
+    }
     while(endsIndex>0){
         let insertIndex = endsIndex+10
         let line = "\n"
@@ -937,6 +962,7 @@ async function loadFile(file) {
         stringData[insertIndex]=`                                                                                                                                        `
         companyNameIndex = stringData.indexOf(` Company Name: `,companyNameIndex+30)
     }
+    stringData= `${date} ${stringData}`
     // Creating a new file that is formatted
     function download(filename, text) {
         var element = document.createElement('a');
